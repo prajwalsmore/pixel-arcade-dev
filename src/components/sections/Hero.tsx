@@ -23,9 +23,9 @@ const Hero = () => {
               transition: { duration: 0.3 }
             }}
           >
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 p-1 animate-profile-glow">
+            <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 p-1 shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-shadow duration-300">
               <motion.div 
-                className="w-full h-full rounded-full bg-muted/50 backdrop-blur-sm flex items-center justify-center shadow-lg"
+                className="w-full h-full rounded-full bg-card/90 backdrop-blur-sm flex items-center justify-center border border-white/10"
                 animate={{ 
                   y: [0, -5, 0],
                 }}
@@ -98,41 +98,41 @@ const Hero = () => {
               href="https://github.com/prajwalsmore"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg hover:shadow-primary/10"
+              className="p-3 rounded-full bg-card/90 backdrop-blur-sm border border-border hover:bg-accent transition-all duration-300 shadow-lg hover:shadow-xl group"
               whileHover={{ 
                 scale: 1.1, 
-                y: -2,
-                transition: { duration: 0.2 }
+                y: -3,
+                transition: { duration: 0.2, type: "spring", stiffness: 400 }
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <Github className="w-6 h-6" />
+              <Github className="w-6 h-6 group-hover:text-primary transition-colors" />
             </motion.a>
             <motion.a
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg hover:shadow-primary/10"
+              className="p-3 rounded-full bg-card/90 backdrop-blur-sm border border-border hover:bg-accent transition-all duration-300 shadow-lg hover:shadow-xl group"
               whileHover={{ 
                 scale: 1.1, 
-                y: -2,
-                transition: { duration: 0.2 }
+                y: -3,
+                transition: { duration: 0.2, type: "spring", stiffness: 400 }
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <Linkedin className="w-6 h-6" />
+              <Linkedin className="w-6 h-6 group-hover:text-primary transition-colors" />
             </motion.a>
             <motion.a
               href="mailto:sprajwalmore@gmail.com"
-              className="p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg hover:shadow-primary/10"
+              className="p-3 rounded-full bg-card/90 backdrop-blur-sm border border-border hover:bg-accent transition-all duration-300 shadow-lg hover:shadow-xl group"
               whileHover={{ 
                 scale: 1.1, 
-                y: -2,
-                transition: { duration: 0.2 }
+                y: -3,
+                transition: { duration: 0.2, type: "spring", stiffness: 400 }
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <Mail className="w-6 h-6" />
+              <Mail className="w-6 h-6 group-hover:text-primary transition-colors" />
             </motion.a>
           </motion.div>
 

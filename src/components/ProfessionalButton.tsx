@@ -13,9 +13,9 @@ const ProfessionalButton = forwardRef<HTMLButtonElement, ProfessionalButtonProps
     const baseClasses = 'font-professional font-medium rounded-md transition-all duration-200 transform active:scale-95 cursor-pointer focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
     
     const variants = {
-      primary: 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg hover:shadow-primary/25',
-      secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-sm hover:shadow-md',
-      outline: 'border border-border bg-background/80 backdrop-blur-sm hover:bg-accent hover:text-accent-foreground shadow-sm hover:shadow-md hover:border-primary/30',
+      primary: 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl hover:shadow-primary/20 border border-primary/20',
+      secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-md hover:shadow-lg',
+      outline: 'border border-border bg-card/80 backdrop-blur-sm hover:bg-accent hover:text-accent-foreground shadow-md hover:shadow-lg hover:border-primary/30',
       ghost: 'hover:bg-accent hover:text-accent-foreground'
     };
 
