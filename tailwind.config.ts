@@ -52,17 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				'neon-green': 'hsl(var(--neon-green))',
-				'neon-pink': 'hsl(var(--neon-pink))',
-				'neon-blue': 'hsl(var(--neon-blue))',
-				'neon-yellow': 'hsl(var(--neon-yellow))',
-				'retro-purple': 'hsl(var(--retro-purple))',
-				'dark-bg': 'hsl(var(--dark-bg))',
-				'darker-bg': 'hsl(var(--darker-bg))'
+				'success': 'hsl(var(--success))',
+				'warning': 'hsl(var(--warning))',
+				'info': 'hsl(var(--info))'
 			},
 			fontFamily: {
-				'pixel': ['Press Start 2P', 'cursive'],
-				'retro': ['VT323', 'monospace']
+				'professional': ['Inter', 'system-ui', 'sans-serif'],
+				'heading': ['DM Sans', 'sans-serif'],
+				'mono': ['JetBrains Mono', 'monospace']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -78,18 +75,13 @@ export default {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' }
 				},
-				'pixel-pulse': {
-					'0%, 100%': { transform: 'scale(1)', opacity: '1' },
-					'50%': { transform: 'scale(1.05)', opacity: '0.8' }
+				'smooth-bounce': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-4px)' }
 				},
-				'glitch': {
-					'0%': { transform: 'translate(0)' },
-					'10%': { transform: 'translate(-2px, 2px)' },
-					'20%': { transform: 'translate(2px, -2px)' },
-					'30%': { transform: 'translate(-2px, -2px)' },
-					'40%': { transform: 'translate(2px, 2px)' },
-					'50%': { transform: 'translate(0)' },
-					'100%': { transform: 'translate(0)' }
+				'gentle-pulse': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
@@ -111,8 +103,8 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pixel-pulse': 'pixel-pulse 2s ease-in-out infinite',
-				'glitch': 'glitch 2s ease-in-out infinite',
+				'smooth-bounce': 'smooth-bounce 2s ease-in-out infinite',
+				'gentle-pulse': 'gentle-pulse 3s ease-in-out infinite',
 				'float': 'float 3s ease-in-out infinite',
 				'slide-in-left': 'slide-in-left 0.6s ease-out',
 				'slide-in-right': 'slide-in-right 0.6s ease-out',

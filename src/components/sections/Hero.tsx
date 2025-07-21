@@ -1,37 +1,17 @@
 import { motion } from 'framer-motion';
-import { PixelButton } from '@/components/PixelButton';
-import pixelAvatar from '@/assets/pixel-avatar.png';
+import { ProfessionalButton } from '@/components/ProfessionalButton';
+import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="grid grid-cols-20 grid-rows-20 h-full w-full">
-          {Array.from({ length: 400 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="border border-primary/20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.3, 0] }}
-              transition={{
-                duration: 2,
-                delay: Math.random() * 5,
-                repeat: Infinity,
-                repeatDelay: Math.random() * 10
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
       <div className="container mx-auto px-4 z-10">
-        <div className="text-center space-y-8">
-          {/* Avatar */}
+        <div className="text-center space-y-8 max-w-4xl mx-auto">
+          {/* Profile Image */}
           <motion.div
-            className="mx-auto w-32 h-32 mb-8"
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
+            className="mx-auto w-40 h-40 mb-8"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
             transition={{ 
               type: "spring",
               stiffness: 260,
@@ -39,53 +19,75 @@ const Hero = () => {
               duration: 1 
             }}
           >
-            <img 
-              src={pixelAvatar} 
-              alt="Pixel Developer Avatar" 
-              className="w-full h-full object-contain animate-float"
-              style={{ imageRendering: 'pixelated' }}
-            />
+            <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 p-1">
+              <div className="w-full h-full rounded-full bg-muted/50 flex items-center justify-center">
+                <span className="text-4xl">👨‍💻</span>
+              </div>
+            </div>
           </motion.div>
 
           {/* Main Title */}
-          <motion.h1
-            className="pixel-font text-4xl md:text-6xl lg:text-7xl mb-6"
+          <motion.div
+            className="space-y-4"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <span className="text-primary animate-pixel-pulse">👾</span>
-            <br />
-            <span className="gradient-text">PIXEL</span>
-            <br />
-            <span className="text-secondary">DEVELOPER</span>
-          </motion.h1>
+            <h1 className="heading-font text-4xl md:text-6xl lg:text-7xl font-bold">
+              <span className="text-foreground">Prajwal More</span>
+            </h1>
+            <div className="text-xl md:text-2xl lg:text-3xl">
+              <span className="gradient-text font-semibold">Full Stack Developer</span>
+              <span className="text-muted-foreground"> | </span>
+              <span className="text-primary font-semibold">Data Science Enthusiast</span>
+            </div>
+          </motion.div>
 
           {/* Tagline */}
           <motion.p
-            className="retro-font text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+            className="professional-font text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <span className="text-neon-green">&gt;</span> Developer by Day, 
-            <span className="text-neon-pink"> Pixel Hero</span> by Night
-            <span className="text-neon-green animate-pixel-pulse">_</span>
+            Turning ideas into interactive, scalable solutions through innovative development and data-driven insights.
           </motion.p>
 
-          {/* Terminal-style intro */}
+          {/* Social Links */}
           <motion.div
-            className="retro-terminal max-w-md mx-auto mb-8 text-left"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.3, duration: 0.5 }}
+            className="flex justify-center space-x-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
           >
-            <div className="text-neon-green">
-              <p>$ whoami</p>
-              <p className="text-neon-blue">&gt; Full Stack Developer</p>
-              <p className="text-neon-pink">&gt; Data Science Enthusiast</p>
-              <p className="text-neon-yellow">&gt; Pixel Art Creator</p>
-            </div>
+            <motion.a
+              href="https://github.com/prajwalsmore"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-card border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github className="w-6 h-6" />
+            </motion.a>
+            <motion.a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-card border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Linkedin className="w-6 h-6" />
+            </motion.a>
+            <motion.a
+              href="mailto:sprajwalmore@gmail.com"
+              className="p-3 rounded-full bg-card border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Mail className="w-6 h-6" />
+            </motion.a>
           </motion.div>
 
           {/* CTA Buttons */}
@@ -93,22 +95,22 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.6, duration: 0.6 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
           >
-            <PixelButton 
-              variant="neon" 
+            <ProfessionalButton 
+              variant="primary" 
               size="lg"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              VIEW PROJECTS
-            </PixelButton>
-            <PixelButton 
-              variant="secondary" 
+              View Projects
+            </ProfessionalButton>
+            <ProfessionalButton 
+              variant="outline" 
               size="lg"
-              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              ABOUT ME
-            </PixelButton>
+              Contact Me
+            </ProfessionalButton>
           </motion.div>
 
           {/* Scroll Indicator */}
@@ -116,18 +118,15 @@ const Hero = () => {
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 0.5 }}
+            transition={{ delay: 1.8, duration: 0.5 }}
           >
             <motion.div
-              className="w-6 h-10 border-2 border-primary rounded-full flex justify-center"
-              animate={{ y: [0, 10, 0] }}
+              className="flex flex-col items-center space-y-2 text-muted-foreground"
+              animate={{ y: [0, 5, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <motion.div
-                className="w-1 h-3 bg-primary rounded-full mt-2"
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
+              <span className="text-sm professional-font">Scroll to explore</span>
+              <ArrowDown className="w-4 h-4" />
             </motion.div>
           </motion.div>
         </div>
