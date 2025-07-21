@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="text-center space-y-8 max-w-4xl mx-auto">
           {/* Profile Image */}
           <motion.div
-            className="mx-auto w-40 h-40 mb-8"
+            className="mx-auto w-40 h-40 mb-8 relative"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ 
@@ -18,12 +18,46 @@ const Hero = () => {
               damping: 20,
               duration: 1 
             }}
+            whileHover={{
+              scale: 1.1,
+              transition: { duration: 0.3 }
+            }}
           >
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 p-1">
-              <div className="w-full h-full rounded-full bg-muted/50 flex items-center justify-center">
+            <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 p-1 animate-profile-glow">
+              <motion.div 
+                className="w-full h-full rounded-full bg-muted/50 backdrop-blur-sm flex items-center justify-center shadow-lg"
+                animate={{ 
+                  y: [0, -5, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
                 <span className="text-4xl">👨‍💻</span>
-              </div>
+              </motion.div>
             </div>
+            {/* Floating particles around profile */}
+            {Array.from({ length: 3 }).map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-primary/60 rounded-full"
+                style={{
+                  left: `${30 + i * 20}%`,
+                  top: `${20 + i * 15}%`,
+                }}
+                animate={{
+                  y: [0, -10, 0],
+                  opacity: [0.3, 1, 0.3],
+                }}
+                transition={{
+                  duration: 2 + i * 0.5,
+                  repeat: Infinity,
+                  delay: i * 0.8,
+                }}
+              />
+            ))}
           </motion.div>
 
           {/* Main Title */}
@@ -33,7 +67,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <h1 className="heading-font text-4xl md:text-6xl lg:text-7xl font-bold">
+            <h1 className="heading-font text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               <span className="text-foreground">Prajwal More</span>
             </h1>
             <div className="text-xl md:text-2xl lg:text-3xl">
@@ -64,8 +98,12 @@ const Hero = () => {
               href="https://github.com/prajwalsmore"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-card border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg"
-              whileHover={{ scale: 1.1 }}
+              className="p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg hover:shadow-primary/10"
+              whileHover={{ 
+                scale: 1.1, 
+                y: -2,
+                transition: { duration: 0.2 }
+              }}
               whileTap={{ scale: 0.95 }}
             >
               <Github className="w-6 h-6" />
@@ -74,16 +112,24 @@ const Hero = () => {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-card border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg"
-              whileHover={{ scale: 1.1 }}
+              className="p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg hover:shadow-primary/10"
+              whileHover={{ 
+                scale: 1.1, 
+                y: -2,
+                transition: { duration: 0.2 }
+              }}
               whileTap={{ scale: 0.95 }}
             >
               <Linkedin className="w-6 h-6" />
             </motion.a>
             <motion.a
               href="mailto:sprajwalmore@gmail.com"
-              className="p-3 rounded-full bg-card border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg"
-              whileHover={{ scale: 1.1 }}
+              className="p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg hover:shadow-primary/10"
+              whileHover={{ 
+                scale: 1.1, 
+                y: -2,
+                transition: { duration: 0.2 }
+              }}
               whileTap={{ scale: 0.95 }}
             >
               <Mail className="w-6 h-6" />

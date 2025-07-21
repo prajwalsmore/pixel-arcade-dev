@@ -3,12 +3,14 @@ import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import Projects from '@/components/sections/Projects';
 import Contact from '@/components/sections/Contact';
-import ModernBackground from '@/components/ModernBackground';
+import GalaxyBackground from '@/components/GalaxyBackground';
+import CursorGlow from '@/components/CursorGlow';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
-      <ModernBackground />
+      <GalaxyBackground />
+      <CursorGlow />
       <Navigation />
       <main className="relative z-10">
         <Hero />
