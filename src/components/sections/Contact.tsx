@@ -68,82 +68,85 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="h-full"
           >
-            <ProfessionalCard>
-              <div className="mb-6">
-                <h3 className="heading-font text-xl font-semibold text-foreground mb-2">
-                  Get In Touch
-                </h3>
-                <p className="professional-font text-muted-foreground">
-                  Let's discuss your next project or collaboration opportunity.
-                </p>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="professional-font text-sm text-foreground block mb-2 font-medium">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="professional-input w-full"
-                    placeholder="Enter your name..."
-                  />
+            <ProfessionalCard className="h-full p-6 bg-card/80 dark:bg-card/40 backdrop-blur-sm border border-border/60 dark:border-border/30">
+              <div className="flex flex-col h-full">
+                <div className="mb-6">
+                  <h3 className="heading-font text-xl font-semibold text-foreground mb-2">
+                    Get In Touch
+                  </h3>
+                  <p className="professional-font text-muted-foreground">
+                    Let's discuss your next project or collaboration opportunity.
+                  </p>
                 </div>
 
-                <div>
-                  <label className="professional-font text-sm text-foreground block mb-2 font-medium">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="professional-input w-full"
-                    placeholder="your.email@domain.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="professional-font text-sm text-foreground block mb-2 font-medium">
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={6}
-                    className="professional-input w-full resize-none"
-                    placeholder="Tell me about your project ideas..."
-                  />
-                </div>
-
-                <ProfessionalButton
-                  type="submit"
-                  variant="primary"
-                  size="lg"
-                  disabled={isSubmitting}
-                  className="w-full"
-                >
-                  {isSubmitting ? (
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      className="w-5 h-5 border-2 border-current border-t-transparent rounded-full mr-2"
+                <form onSubmit={handleSubmit} className="space-y-6 flex-grow">
+                  <div>
+                    <label className="professional-font text-sm text-foreground block mb-2 font-medium">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="professional-input w-full"
+                      placeholder="Enter your name..."
                     />
-                  ) : (
-                    <Send className="w-5 h-5 mr-2" />
-                  )}
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </ProfessionalButton>
-              </form>
+                  </div>
+
+                  <div>
+                    <label className="professional-font text-sm text-foreground block mb-2 font-medium">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="professional-input w-full"
+                      placeholder="your.email@domain.com"
+                    />
+                  </div>
+
+                  <div className="flex-grow">
+                    <label className="professional-font text-sm text-foreground block mb-2 font-medium">
+                      Message
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={6}
+                      className="professional-input w-full resize-none h-32"
+                      placeholder="Tell me about your project ideas..."
+                    />
+                  </div>
+
+                  <ProfessionalButton
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="w-full mt-auto"
+                  >
+                    {isSubmitting ? (
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        className="w-5 h-5 border-2 border-current border-t-transparent rounded-full mr-2"
+                      />
+                    ) : (
+                      <Send className="w-5 h-5 mr-2" />
+                    )}
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </ProfessionalButton>
+                </form>
+              </div>
             </ProfessionalCard>
           </motion.div>
 
@@ -153,10 +156,10 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-8 h-full"
           >
             {/* Contact Info */}
-            <ProfessionalCard>
+            <ProfessionalCard className="bg-card/80 dark:bg-card/40 backdrop-blur-sm border border-border/60 dark:border-border/30">
               <h3 className="heading-font text-lg font-semibold text-foreground mb-4">
                 Let's Connect
               </h3>
@@ -177,7 +180,7 @@ const Contact = () => {
             </ProfessionalCard>
 
             {/* Social Links */}
-            <ProfessionalCard>
+            <ProfessionalCard className="bg-card/80 dark:bg-card/40 backdrop-blur-sm border border-border/60 dark:border-border/30">
               <h3 className="heading-font text-lg font-semibold text-foreground mb-6 text-center">
                 Connect With Me
               </h3>
@@ -188,7 +191,7 @@ const Contact = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-4 p-3 border border-border hover:border-primary transition-colors group rounded-md hover:bg-accent"
+                    className="flex items-center space-x-4 p-3 border border-border/40 hover:border-primary transition-colors group rounded-md hover:bg-accent/50"
                     whileHover={{ x: 10 }}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -205,7 +208,7 @@ const Contact = () => {
             </ProfessionalCard>
 
             {/* Stats */}
-            <ProfessionalCard>
+            <ProfessionalCard className="bg-card/80 dark:bg-card/40 backdrop-blur-sm border border-border/60 dark:border-border/30">
               <h3 className="heading-font text-lg font-semibold text-foreground mb-4 text-center">
                 Quick Stats
               </h3>
