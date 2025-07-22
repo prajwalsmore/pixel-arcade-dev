@@ -25,7 +25,7 @@ const Hero = () => {
                   <img 
                     src="https://res.cloudinary.com/dnsddhbwj/image/upload/v1753167537/IMG_1978_xizzs8.jpg" 
                     alt="Virendra Sahu - Profile" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover w-32 h-32"
                   />
                   </div>
                 </span>
