@@ -118,62 +118,65 @@ const Projects = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
       viewport={{ once: true }}
+      className="h-full"
     >
-      <ProfessionalCard className="h-full">
-        <div className="flex items-start justify-between mb-4">
-          <motion.div
-            className="text-primary"
-            whileHover={{ scale: 1.2, rotate: 15 }}
-            transition={{ duration: 0.3 }}
-          >
-            <project.icon className="w-8 h-8" />
-          </motion.div>
-          <span className="tech-badge text-xs">
-            {project.category}
-          </span>
-        </div>
-
-        <h3 className="heading-font text-lg mb-3 text-foreground font-semibold">
-          {project.title}
-        </h3>
-
-        <p className="professional-font text-muted-foreground mb-4 text-sm leading-relaxed">
-          {project.description}
-        </p>
-
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tech.map((tech: string) => (
-            <span
-              key={tech}
-              className="tech-badge"
+      <ProfessionalCard className="h-full p-6 bg-card/80 dark:bg-card/40 backdrop-blur-sm border border-border/60 dark:border-border/30">
+        <div className="flex flex-col h-full">
+          <div className="flex items-start justify-between mb-4">
+            <motion.div
+              className="text-primary"
+              whileHover={{ scale: 1.2, rotate: 15 }}
+              transition={{ duration: 0.3 }}
             >
-              {tech}
+              <project.icon className="w-8 h-8" />
+            </motion.div>
+            <span className="tech-badge text-xs bg-primary/10 text-primary border-primary/20">
+              {project.category}
             </span>
-          ))}
-        </div>
-
-        {showLinks && (
-          <div className="flex gap-3 mt-auto">
-            <ProfessionalButton 
-              variant="outline" 
-              size="sm" 
-              className="flex-1"
-              onClick={() => window.open(project.github, '_blank')}
-            >
-              <Github className="w-4 h-4 mr-2" />
-              GitHub
-            </ProfessionalButton>
-            <ProfessionalButton 
-              variant="primary" 
-              size="sm" 
-              className="flex-1"
-              onClick={() => window.open(project.live, '_blank')}
-            >
-              <ExternalLink className="w-4 h-4 mr-2" />
-              Live Demo
-            </ProfessionalButton>
           </div>
-        )}
+
+          <h3 className="heading-font text-lg mb-3 text-foreground font-semibold">
+            {project.title}
+          </h3>
+
+          <p className="professional-font text-muted-foreground mb-4 text-sm leading-relaxed flex-grow">
+            {project.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.tech.map((tech: string) => (
+              <span
+                key={tech}
+                className="tech-badge bg-muted/60 text-muted-foreground border-border/40"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {showLinks && (
+            <div className="flex gap-3 mt-auto">
+              <ProfessionalButton 
+                variant="outline" 
+                size="sm" 
+                className="flex-1"
+                onClick={() => window.open(project.github, '_blank')}
+              >
+                <Github className="w-4 h-4 mr-2" />
+                GitHub
+              </ProfessionalButton>
+              <ProfessionalButton 
+                variant="primary" 
+                size="sm" 
+                className="flex-1"
+                onClick={() => window.open(project.live, '_blank')}
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Live Demo
+              </ProfessionalButton>
+            </div>
+          )}
+        </div>
       </ProfessionalCard>
     </motion.div>
   );
@@ -209,7 +212,7 @@ const Projects = () => {
           >
             💻 Full Stack Projects
           </motion.h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {fullStackProjects.map((project, index) => (
               <ProjectCard key={project.title} project={project} index={index} showLinks={true} />
             ))}
@@ -227,7 +230,7 @@ const Projects = () => {
           >
             📊 Data Science & Analytics
           </motion.h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {dataProjects.map((project, index) => (
               <ProjectCard key={project.title} project={project} index={index} showLinks={false} />
             ))}
@@ -245,7 +248,7 @@ const Projects = () => {
           >
             🧪 Early Projects
           </motion.h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {earlyProjects.map((project, index) => (
               <ProjectCard key={project.title} project={project} index={index} showLinks={false} />
             ))}
