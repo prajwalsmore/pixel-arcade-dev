@@ -71,7 +71,7 @@ const Hero = () => {
               <Github className="w-6 h-6" />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://www.linkedin.com/in/prajwal-more777/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-card border border-border hover:bg-accent transition-colors shadow-md hover:shadow-lg"

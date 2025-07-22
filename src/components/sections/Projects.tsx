@@ -1,43 +1,43 @@
 import { motion } from 'framer-motion';
-import { PixelCard } from '@/components/PixelCard';
-import { PixelButton } from '@/components/PixelButton';
+import { ProfessionalCard } from '@/components/ProfessionalCard';
+import { ProfessionalButton } from '@/components/ProfessionalButton';
 import { ExternalLink, Github, Database, Brain, Gamepad2, Code } from 'lucide-react';
 
 const Projects = () => {
   const fullStackProjects = [
     {
       title: 'Cabin Space Planner',
-      description: 'Cabin booking system with role-based access and room codes',
+      description: 'A role-based cabin booking platform where admins manage cabins and employees request bookings.',
       tech: ['React', 'TypeScript', 'Supabase'],
-      github: 'cabin-space-planner',
-      live: '#',
+      github: 'https://github.com/prajwalsmore/cabin-space-planner',
+      live: 'https://strong-pastelito-351b60.netlify.app',
       icon: Database,
       category: 'Full Stack'
     },
     {
-      title: 'HabitForge',
-      description: 'Minimal habit tracker to help users build and keep streaks',
+      title: 'HabitForge – Streak Keeper',
+      description: 'A minimal habit tracker to help users build streaks and stay consistent with daily goals.',
       tech: ['React', 'Local Storage', 'Progressive Web App'],
-      github: 'habitforge-streak-keeper',
-      live: '#',
+      github: 'https://github.com/prajwalsmore/habitforge-streak-keeper',
+      live: 'https://willowy-swan-3cff57.netlify.app',
       icon: Code,
       category: 'Full Stack'
     },
     {
       title: 'Learn It. Trade It.',
-      description: 'Skill swap platform – post what you can teach and learn',
+      description: 'A peer-to-peer skill exchange platform to help people teach and learn from each other.',
       tech: ['React', 'Node.js', 'MongoDB'],
-      github: 'learn-it-trade-it',
-      live: '#',
+      github: 'https://github.com/prajwalsmore/learn-it-trade-it',
+      live: 'https://learn-it-trade-it-71.lovable.app',
       icon: Brain,
       category: 'Full Stack'
     },
     {
-      title: 'CodeRunner',
-      description: 'Online compiler for 70+ languages with Monaco Editor',
+      title: 'CodeRunner – Online Code Compiler',
+      description: 'A web-based code editor supporting 70+ programming languages with real-time execution and Monaco Editor. (with @Aditya Sawant)',
       tech: ['React', 'Monaco Editor', 'Docker'],
-      github: 'CorderRunner',
-      live: '#',
+      github: 'https://github.com/aditya9112adi/CorderRunner',
+      live: 'https://corderrunner.onrender.com',
       icon: Code,
       category: 'Full Stack'
     }
@@ -112,14 +112,14 @@ const Projects = () => {
     }
   ];
 
-  const ProjectCard = ({ project, index }: { project: any; index: number }) => (
+  const ProjectCard = ({ project, index, showLinks = true }: { project: any; index: number; showLinks?: boolean }) => (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <PixelCard variant="project" className="h-full">
+      <ProfessionalCard className="h-full">
         <div className="flex items-start justify-between mb-4">
           <motion.div
             className="text-primary"
@@ -128,16 +128,16 @@ const Projects = () => {
           >
             <project.icon className="w-8 h-8" />
           </motion.div>
-          <span className="pixel-font text-xs text-accent bg-accent/10 px-2 py-1 border border-accent">
+          <span className="tech-badge text-xs">
             {project.category}
           </span>
         </div>
 
-        <h3 className="pixel-font text-lg mb-3 text-primary">
+        <h3 className="heading-font text-lg mb-3 text-foreground font-semibold">
           {project.title}
         </h3>
 
-        <p className="retro-font text-muted-foreground mb-4 text-sm leading-relaxed">
+        <p className="professional-font text-muted-foreground mb-4 text-sm leading-relaxed">
           {project.description}
         </p>
 
@@ -145,24 +145,36 @@ const Projects = () => {
           {project.tech.map((tech: string) => (
             <span
               key={tech}
-              className="pixel-font text-xs bg-secondary/20 text-secondary px-2 py-1 border border-secondary/50"
+              className="tech-badge"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="flex gap-3 mt-auto">
-          <PixelButton variant="secondary" size="sm" className="flex-1">
-            <Github className="w-4 h-4 mr-2" />
-            CODE
-          </PixelButton>
-          <PixelButton variant="accent" size="sm" className="flex-1">
-            <ExternalLink className="w-4 h-4 mr-2" />
-            LIVE
-          </PixelButton>
-        </div>
-      </PixelCard>
+        {showLinks && (
+          <div className="flex gap-3 mt-auto">
+            <ProfessionalButton 
+              variant="outline" 
+              size="sm" 
+              className="flex-1"
+              onClick={() => window.open(project.github, '_blank')}
+            >
+              <Github className="w-4 h-4 mr-2" />
+              GitHub
+            </ProfessionalButton>
+            <ProfessionalButton 
+              variant="primary" 
+              size="sm" 
+              className="flex-1"
+              onClick={() => window.open(project.live, '_blank')}
+            >
+              <ExternalLink className="w-4 h-4 mr-2" />
+              Live Demo
+            </ProfessionalButton>
+          </div>
+        )}
+      </ProfessionalCard>
     </motion.div>
   );
 
@@ -176,12 +188,12 @@ const Projects = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="pixel-font text-3xl md:text-4xl mb-4 text-primary">
-            &lt;PROJECTS /&gt;
+          <h2 className="heading-font text-3xl md:text-4xl mb-4 text-foreground font-bold">
+            Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
-          <p className="retro-font text-xl text-muted-foreground max-w-2xl mx-auto">
-            A collection of pixel-perfect projects spanning full-stack development, 
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-blue-600 mx-auto mb-6"></div>
+          <p className="professional-font text-xl text-muted-foreground max-w-2xl mx-auto">
+            A collection of projects spanning full-stack development, 
             data science, and experimental tech
           </p>
         </motion.div>
@@ -189,17 +201,17 @@ const Projects = () => {
         {/* Full Stack Projects */}
         <div className="mb-16">
           <motion.h3
-            className="pixel-font text-2xl mb-8 text-secondary text-center"
+            className="heading-font text-2xl mb-8 text-blue-600 text-center font-semibold"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            💻 FULL STACK PROJECTS
+            💻 Full Stack Projects
           </motion.h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
             {fullStackProjects.map((project, index) => (
-              <ProjectCard key={project.title} project={project} index={index} />
+              <ProjectCard key={project.title} project={project} index={index} showLinks={true} />
             ))}
           </div>
         </div>
@@ -207,17 +219,17 @@ const Projects = () => {
         {/* Data Science Projects */}
         <div className="mb-16">
           <motion.h3
-            className="pixel-font text-2xl mb-8 text-accent text-center"
+            className="heading-font text-2xl mb-8 text-blue-600 text-center font-semibold"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            📊 DATA SCIENCE & ANALYTICS
+            📊 Data Science & Analytics
           </motion.h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
             {dataProjects.map((project, index) => (
-              <ProjectCard key={project.title} project={project} index={index} />
+              <ProjectCard key={project.title} project={project} index={index} showLinks={false} />
             ))}
           </div>
         </div>
@@ -225,17 +237,17 @@ const Projects = () => {
         {/* Early Projects */}
         <div>
           <motion.h3
-            className="pixel-font text-2xl mb-8 text-neon-pink text-center"
+            className="heading-font text-2xl mb-8 text-blue-600 text-center font-semibold"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            🧪 EARLY PROJECTS
+            🧪 Early Projects
           </motion.h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {earlyProjects.map((project, index) => (
-              <ProjectCard key={project.title} project={project} index={index} />
+              <ProjectCard key={project.title} project={project} index={index} showLinks={false} />
             ))}
           </div>
         </div>
@@ -248,10 +260,14 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <PixelButton variant="neon" size="lg">
+          <ProfessionalButton 
+            variant="primary" 
+            size="lg"
+            onClick={() => window.open('https://github.com/prajwalsmore', '_blank')}
+          >
             <Github className="w-5 h-5 mr-2" />
-            VIEW ALL ON GITHUB
-          </PixelButton>
+            View All on GitHub
+          </ProfessionalButton>
         </motion.div>
       </div>
     </section>

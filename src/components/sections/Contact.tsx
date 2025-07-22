@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { PixelCard } from '@/components/PixelCard';
-import { PixelButton } from '@/components/PixelButton';
+import { ProfessionalCard } from '@/components/ProfessionalCard';
+import { ProfessionalButton } from '@/components/ProfessionalButton';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, Github, Linkedin, Send } from 'lucide-react';
 
@@ -37,9 +37,9 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: Github, label: 'GitHub', href: '#' },
-    { icon: Linkedin, label: 'LinkedIn', href: '#' },
-    { icon: Mail, label: 'Email', href: 'mailto:hello@example.com' }
+    { icon: Github, label: 'GitHub', href: 'https://github.com/prajwalsmore' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/prajwal-more777/' },
+    { icon: Mail, label: 'Email', href: 'mailto:sprajwalmore@gmail.com' }
   ];
 
   return (
@@ -52,12 +52,12 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="pixel-font text-3xl md:text-4xl mb-4 text-primary">
-            &lt;CONTACT /&gt;
+          <h2 className="heading-font text-3xl md:text-4xl mb-4 text-foreground font-bold">
+            Contact Me
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
-          <p className="retro-font text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to start a new quest? Let's team up and create something awesome!
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-blue-600 mx-auto mb-6"></div>
+          <p className="professional-font text-xl text-muted-foreground max-w-2xl mx-auto">
+            Ready to start a new project? Let's connect and create something amazing together!
           </p>
         </motion.div>
 
@@ -69,17 +69,20 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <PixelCard variant="neon">
-              <div className="retro-terminal mb-6">
-                <p className="text-neon-green">$ initialize_contact_protocol</p>
-                <p className="text-neon-blue">&gt; Connection established...</p>
-                <p className="text-neon-pink">&gt; Ready to receive message</p>
+            <ProfessionalCard>
+              <div className="mb-6">
+                <h3 className="heading-font text-xl font-semibold text-foreground mb-2">
+                  Get In Touch
+                </h3>
+                <p className="professional-font text-muted-foreground">
+                  Let's discuss your next project or collaboration opportunity.
+                </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="pixel-font text-sm text-primary block mb-2">
-                    PLAYER_NAME:
+                  <label className="professional-font text-sm text-foreground block mb-2 font-medium">
+                    Name
                   </label>
                   <input
                     type="text"
@@ -87,14 +90,14 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-input border-2 border-primary text-foreground p-3 retro-font focus:outline-none focus:border-accent transition-colors"
+                    className="professional-input w-full"
                     placeholder="Enter your name..."
                   />
                 </div>
 
                 <div>
-                  <label className="pixel-font text-sm text-primary block mb-2">
-                    EMAIL_ADDRESS:
+                  <label className="professional-font text-sm text-foreground block mb-2 font-medium">
+                    Email
                   </label>
                   <input
                     type="email"
@@ -102,14 +105,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-input border-2 border-primary text-foreground p-3 retro-font focus:outline-none focus:border-accent transition-colors"
+                    className="professional-input w-full"
                     placeholder="your.email@domain.com"
                   />
                 </div>
 
                 <div>
-                  <label className="pixel-font text-sm text-primary block mb-2">
-                    MESSAGE_CONTENT:
+                  <label className="professional-font text-sm text-foreground block mb-2 font-medium">
+                    Message
                   </label>
                   <textarea
                     name="message"
@@ -117,14 +120,14 @@ const Contact = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full bg-input border-2 border-primary text-foreground p-3 retro-font focus:outline-none focus:border-accent transition-colors resize-none"
+                    className="professional-input w-full resize-none"
                     placeholder="Tell me about your project ideas..."
                   />
                 </div>
 
-                <PixelButton
+                <ProfessionalButton
                   type="submit"
-                  variant="neon"
+                  variant="primary"
                   size="lg"
                   disabled={isSubmitting}
                   className="w-full"
@@ -138,10 +141,10 @@ const Contact = () => {
                   ) : (
                     <Send className="w-5 h-5 mr-2" />
                   )}
-                  {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
-                </PixelButton>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </ProfessionalButton>
               </form>
-            </PixelCard>
+            </ProfessionalCard>
           </motion.div>
 
           {/* Contact Info & Social Links */}
@@ -152,69 +155,79 @@ const Contact = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            {/* Terminal Info */}
-            <PixelCard variant="project">
-              <div className="retro-terminal">
-                <p className="text-neon-green mb-4">$ cat contact_info.txt</p>
-                <div className="space-y-2">
-                  <p className="text-neon-blue">&gt; Status: Available for projects</p>
-                  <p className="text-neon-pink">&gt; Response time: &lt; 24 hours</p>
-                  <p className="text-neon-yellow">&gt; Timezone: Your timezone (remote friendly)</p>
-                  <p className="text-neon-green">&gt; Preferred: Collaborative projects</p>
+            {/* Contact Info */}
+            <ProfessionalCard>
+              <h3 className="heading-font text-lg font-semibold text-foreground mb-4">
+                Let's Connect
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span className="professional-font text-sm text-muted-foreground">Available for projects</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span className="professional-font text-sm text-muted-foreground">Response time: &lt; 24 hours</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <span className="professional-font text-sm text-muted-foreground">Remote friendly</span>
                 </div>
               </div>
-            </PixelCard>
+            </ProfessionalCard>
 
             {/* Social Links */}
-            <PixelCard variant="default">
-              <h3 className="pixel-font text-lg mb-6 text-primary text-center">
-                CONNECT WITH ME
+            <ProfessionalCard>
+              <h3 className="heading-font text-lg font-semibold text-foreground mb-6 text-center">
+                Connect With Me
               </h3>
               <div className="space-y-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
-                    className="flex items-center space-x-4 p-3 border-2 border-secondary hover:border-accent transition-colors group"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-4 p-3 border border-border hover:border-primary transition-colors group rounded-md hover:bg-accent"
                     whileHover={{ x: 10 }}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.3 }}
                     viewport={{ once: true }}
                   >
-                    <social.icon className="w-6 h-6 text-secondary group-hover:text-accent transition-colors" />
-                    <span className="retro-font text-lg text-secondary group-hover:text-accent transition-colors">
+                    <social.icon className="w-6 h-6 text-primary group-hover:text-primary transition-colors" />
+                    <span className="professional-font text-lg text-foreground group-hover:text-foreground transition-colors">
                       {social.label}
                     </span>
                   </motion.a>
                 ))}
               </div>
-            </PixelCard>
+            </ProfessionalCard>
 
-            {/* Fun Stats */}
-            <PixelCard variant="neon">
-              <h3 className="pixel-font text-sm mb-4 text-center text-neon-green">
-                CURRENT STATS
+            {/* Stats */}
+            <ProfessionalCard>
+              <h3 className="heading-font text-lg font-semibold text-foreground mb-4 text-center">
+                Quick Stats
               </h3>
               <div className="grid grid-cols-2 gap-4 text-center">
                 <div>
-                  <div className="pixel-font text-xl text-neon-pink">100%</div>
-                  <div className="retro-font text-xs text-muted-foreground">Response Rate</div>
+                  <div className="heading-font text-xl text-primary font-bold">100%</div>
+                  <div className="professional-font text-xs text-muted-foreground">Response Rate</div>
                 </div>
                 <div>
-                  <div className="pixel-font text-xl text-neon-blue">24/7</div>
-                  <div className="retro-font text-xs text-muted-foreground">Learning Mode</div>
+                  <div className="heading-font text-xl text-primary font-bold">24/7</div>
+                  <div className="professional-font text-xs text-muted-foreground">Learning Mode</div>
                 </div>
                 <div>
-                  <div className="pixel-font text-xl text-neon-yellow">∞</div>
-                  <div className="retro-font text-xs text-muted-foreground">Ideas Generated</div>
+                  <div className="heading-font text-xl text-primary font-bold">∞</div>
+                  <div className="professional-font text-xs text-muted-foreground">Ideas Generated</div>
                 </div>
                 <div>
-                  <div className="pixel-font text-xl text-neon-green">99%</div>
-                  <div className="retro-font text-xs text-muted-foreground">Coffee Uptime</div>
+                  <div className="heading-font text-xl text-primary font-bold">99%</div>
+                  <div className="professional-font text-xs text-muted-foreground">Coffee Uptime</div>
                 </div>
               </div>
-            </PixelCard>
+            </ProfessionalCard>
           </motion.div>
         </div>
       </div>

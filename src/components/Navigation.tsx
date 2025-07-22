@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Menu, X, Download } from 'lucide-react';
 import { ProfessionalButton } from './ProfessionalButton';
+import { ThemeToggle } from './ThemeToggle';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,18 +66,20 @@ const Navigation = () => {
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
               </motion.button>
             ))}
-            <ProfessionalButton 
-              variant="outline" 
-              size="sm"
-              className="ml-4"
-              onClick={() => {
-                // Download resume functionality
-                window.open('/resume.pdf', '_blank');
-              }}
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Resume
-            </ProfessionalButton>
+            <div className="flex items-center space-x-3 ml-4">
+              <ThemeToggle />
+              <ProfessionalButton 
+                variant="outline" 
+                size="sm"
+                onClick={() => {
+                  // Download resume functionality
+                  window.open('/resume.pdf', '_blank');
+                }}
+              >
+                <Download className="w-4 h-4 mr-2" />
+                Resume
+              </ProfessionalButton>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -110,7 +113,10 @@ const Navigation = () => {
                 {item.name}
               </motion.button>
             ))}
-            <div className="px-4 pt-2">
+            <div className="px-4 pt-2 space-y-2">
+              <div className="flex justify-center">
+                <ThemeToggle />
+              </div>
               <ProfessionalButton 
                 variant="outline" 
                 size="sm"
