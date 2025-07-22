@@ -20,14 +20,12 @@ const Hero = () => {
             }}
           >
             <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 p-1">
-              <div className="w-full h-full rounded-full bg-muted/50 flex items-center justify-center">
-                <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden shadow-glow border-4 border-white/20">
-                  <img 
-                    src="https://res.cloudinary.com/dnsddhbwj/image/upload/v1753167537/IMG_1978_xizzs8.jpg" 
-                    alt="Virendra Sahu - Profile" 
-                    className="w-full h-full object-cover w-32 h-32"
-                  />
-                  </div>
+              <div className="w-full h-full rounded-full overflow-hidden shadow-glow border-4 border-white/20 group">
+                <img 
+                  src="https://res.cloudinary.com/dnsddhbwj/image/upload/v1753167537/IMG_1978_xizzs8.jpg" 
+                  alt="Virendra Sahu - Profile" 
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
               </div>
             </div>
           </motion.div>
