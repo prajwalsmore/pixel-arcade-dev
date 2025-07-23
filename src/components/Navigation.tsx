@@ -82,15 +82,18 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <motion.button
-            className="md:hidden text-primary"
-            onClick={() => setIsOpen(!isOpen)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </motion.button>
+          {/* Mobile Menu Button and Theme Toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <motion.button
+              className="text-primary"
+              onClick={() => setIsOpen(!isOpen)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </motion.button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
