@@ -73,7 +73,7 @@ const Navigation = () => {
                 size="sm"
                 onClick={() => {
                   // Download resume functionality
-                  window.open('/resume.pdf', '_blank');
+                  window.open('https://drive.google.com/file/d/1bhvegi9DG268b0uBgXevIq41Nf9LlrS8/view?usp=sharing', '_blank');
                 }}
               >
                 <Download className="w-4 h-4 mr-2" />
