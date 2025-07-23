@@ -113,8 +113,8 @@ const Navigation = () => {
                 {item.name}
               </motion.button>
             ))}
-            <div className="px-4 pt-2 space-y-2">
-              <div className="flex justify-center">
+            <div className="px-4 pt-2 space-y-3">
+              <div className="flex justify-center py-2">
                 <ThemeToggle />
               </div>
               <ProfessionalButton 
